@@ -1,141 +1,114 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ucapan Ulang Tahun untuk Kamu 🎂❤️</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday, Sayang! 🎂💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      font-family: 'Poppins', sans-serif;
-      overflow: hidden;
+    :root{
+      --pink:#ff64b4; --gold:#ffd166; --soft:#e1e8ff; --card:#16182f;
     }
-
-    /* Slideshow Background */
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0; color:#fff; font-family:Poppins,system-ui; overflow:hidden;}
+    
+    /* Slideshow background */
     .slideshow {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
+      position:fixed; inset:0; z-index:-1;
     }
     .slideshow img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      animation: fade 25s infinite;
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; opacity:0; transition:opacity 2s ease-in-out;
     }
-    .slideshow img:nth-child(1) { animation-delay: 0s; }
-    .slideshow img:nth-child(2) { animation-delay: 5s; }
-    .slideshow img:nth-child(3) { animation-delay: 10s; }
-    .slideshow img:nth-child(4) { animation-delay: 15s; }
-    .slideshow img:nth-child(5) { animation-delay: 20s; }
+    .slideshow img.active {opacity:1;}
 
-    @keyframes fade {
-      0% { opacity: 0; }
-      10% { opacity: 1; }
-      20% { opacity: 1; }
-      30% { opacity: 0; }
-      100% { opacity: 0; }
+    .wrap{min-height:100%; display:grid; place-items:center; padding:28px}
+    .card{
+      width:min(900px,92vw);
+      background:rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      border-radius:28px; padding:28px; position:relative;
+      box-shadow:0 20px 60px rgba(0,0,0,.45);
     }
-
-    /* Card */
-    .card {
-      position: relative;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(255, 255, 255, 0.85);
-      border-radius: 20px;
-      padding: 30px;
-      text-align: center;
-      max-width: 500px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-      animation: fadeIn 2s ease-in-out;
-      z-index: 1;
+    h1{margin:0; font-size:clamp(28px,6vw,56px); font-weight:800;
+      background: linear-gradient(90deg, #fff, var(--gold), #fff);
+      -webkit-background-clip:text; color:transparent;}
+    .script{font-family:"Great Vibes", cursive; font-size:clamp(26px,6vw,52px); color:var(--pink);}
+    button{
+      border:none; cursor:pointer; font-weight:700;
+      padding:12px 16px; border-radius:14px; background:#2a2e6b; color:#fff;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translate(-50%, -60%); }
-      to { opacity: 1; transform: translate(-50%, -50%); }
-    }
-
-    h1 {
-      color: #ff4081;
-      font-size: 2.2em;
-    }
-    p {
-      font-size: 1.1em;
-      color: #333;
-    }
-
-    /* Konfeti */
-    .confetti {
-      position: fixed;
-      top: -10px;
-      width: 10px;
-      height: 10px;
-      background-color: red;
-      opacity: 0.7;
-      animation: fall linear forwards;
-      z-index: 0;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(110vh) rotate(720deg);
-      }
-    }
+    button:hover{background:#363b84}
   </style>
 </head>
 <body>
-
-  <!-- Slideshow Background -->
+  <!-- Slideshow background -->
   <div class="slideshow">
-    <img src="Lafayette (9 of 54).jpg" alt="foto1">
-    <img src="Lafayette (11 of 54).jpg" alt="foto2">
-    <img src="Lafayette (33 of 54).jpg" alt="foto3">
-    <img src="Lafayette (39 of 54).jpg" alt="foto4">
-    <img src="Lafayette (52 of 54).jpg" alt="foto5">
+    <img src="Lafayette (9 of 54).jpg" class="active">
+    <img src="Lafayette (11 of 54).jpg">
+    <img src="Lafayette (33 of 54).jpg">
+    <img src="Lafayette (39 of 54).jpg">
+    <img src="Lafayette (52 of 54).jpg">
   </div>
 
-  <!-- Kartu Ucapan -->
-  <div class="card">
-    <h1>🎂 Selamat Ulang Tahun Sayang ❤️</h1>
-    <p>Semoga hari ini seindah senyummu, sehangat pelukanmu, dan penuh cinta yang nggak ada habisnya. Aku bersyukur punya kamu di hidupku 💕</p>
-    <p>Love you always 😘</p>
+  <div class="wrap">
+    <div class="card">
+      <div class="script">Selamat Ulang Tahun</div>
+      <h1>Sayangku, Ni Wayan Kartika 🎉</h1>
+      <p>Hari ini hari spesialmu — 3 September 2025</p>
+
+      <div>
+        <button id="play">Putar Musik</button>
+        <button id="confetti">Konfeti 🎊</button>
+      </div>
+
+      <p style="margin-top:20px">Semoga semua doa baik menjadi nyata. ✨<br>
+      Terima kasih sudah jadi rumah ter-nyaman untuk hati ini. sayang, Aku bersyukur bisa berbagi tawa, cerita, dan hidup bareng kamu. Semoga tahun ini makin indah dan menjadi tahun lebih baik dari sebelumnya untukmu. tetap semangat dan jangan pernah menyerah ya, kamu itu wanita tangguh dan kuat </p>
+
+      <footer style="margin-top:20px;font-family:'Great Vibes',cursive;color:var(--pink);font-size:28px;">
+        — Nengah Ardana Yasa
+      </footer>
+
+      <audio id="music" preload="auto">
+        <source src="piano.mp3" type="audio/mpeg">
+      </audio>
+    </div>
   </div>
 
-  <!-- Musik Piano Romantis -->
-  <audio autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4fdd4b4db2.mp3?filename=romantic-piano-112191.mp3" type="audio/mpeg">
-  </audio>
-
-  <!-- Konfeti Script -->
   <script>
-    function randomConfetti() {
-      const colors = ["#ff4081", "#ffd700", "#00bfff", "#32cd32", "#ff4500"];
-      const confetti = document.createElement("div");
-      confetti.classList.add("confetti");
-      confetti.style.left = Math.random() * 100 + "vw";
-      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      confetti.style.animationDuration = (3 + Math.random() * 2) + "s";
-      document.body.appendChild(confetti);
+    // Slideshow logic
+    const slides = document.querySelectorAll('.slideshow img');
+    let current = 0;
+    setInterval(()=>{
+      slides[current].classList.remove('active');
+      current = (current+1)%slides.length;
+      slides[current].classList.add('active');
+    },4000);
 
-      setTimeout(() => {
-        confetti.remove();
-      }, 5000);
+    // Musik play/pause
+    const audio = document.getElementById('music');
+    const btnPlay = document.getElementById('play');
+    btnPlay.addEventListener('click',()=>{
+      if(audio.paused){ audio.play(); btnPlay.textContent='Jeda Musik'; }
+      else{ audio.pause(); btnPlay.textContent='Putar Musik'; }
+    });
+
+    // Confetti sederhana
+    const colors=['#ff5da2','#ffd166','#7ad3ff','#c0ff72','#fff'];
+    function confetti(){
+      for(let i=0;i<80;i++){
+        const d=document.createElement('div');
+        d.className='confetti'; d.style.position='fixed'; d.style.top='-10px';
+        d.style.left=Math.random()*100+'vw';
+        d.style.width='8px'; d.style.height='12px';
+        d.style.background=colors[Math.floor(Math.random()*colors.length)];
+        d.style.opacity='.9'; d.style.transition='transform 4s linear';
+        document.body.appendChild(d);
+        requestAnimationFrame(()=>{ d.style.transform=`translateY(100vh) rotate(${Math.random()*720}deg)`; });
+        setTimeout(()=>d.remove(),4000);
+      }
     }
-
-    setInterval(randomConfetti, 200);
+    document.getElementById('confetti').addEventListener('click',confetti);
   </script>
-
 </body>
 </html>
-
