@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ucapan Ulang Tahun untuk Kamu 🎂❤️</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+
+    /* Slideshow Background */
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      animation: fade 25s infinite;
+    }
+    .slideshow img:nth-child(1) { animation-delay: 0s; }
+    .slideshow img:nth-child(2) { animation-delay: 5s; }
+    .slideshow img:nth-child(3) { animation-delay: 10s; }
+    .slideshow img:nth-child(4) { animation-delay: 15s; }
+    .slideshow img:nth-child(5) { animation-delay: 20s; }
+
+    @keyframes fade {
+      0% { opacity: 0; }
+      10% { opacity: 1; }
+      20% { opacity: 1; }
+      30% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    /* Card */
+    .card {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      max-width: 500px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      animation: fadeIn 2s ease-in-out;
+      z-index: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    h1 {
+      color: #ff4081;
+      font-size: 2.2em;
+    }
+    p {
+      font-size: 1.1em;
+      color: #333;
+    }
+
+    /* Konfeti */
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      opacity: 0.7;
+      animation: fall linear forwards;
+      z-index: 0;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slideshow Background -->
+  <div class="slideshow">
+    <img src="Lafayette (9 of 54).jpg" alt="foto1">
+    <img src="Lafayette (11 of 54).jpg" alt="foto2">
+    <img src="Lafayette (33 of 54).jpg" alt="foto3">
+    <img src="Lafayette (39 of 54).jpg" alt="foto4">
+    <img src="Lafayette (52 of 54).jpg" alt="foto5">
+  </div>
+
+  <!-- Kartu Ucapan -->
+  <div class="card">
+    <h1>🎂 Selamat Ulang Tahun Sayang ❤️</h1>
+    <p>Semoga hari ini seindah senyummu, sehangat pelukanmu, dan penuh cinta yang nggak ada habisnya. Aku bersyukur punya kamu di hidupku 💕</p>
+    <p>Love you always 😘</p>
+  </div>
+
+  <!-- Musik Piano Romantis -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4fdd4b4db2.mp3?filename=romantic-piano-112191.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Konfeti Script -->
+  <script>
+    function randomConfetti() {
+      const colors = ["#ff4081", "#ffd700", "#00bfff", "#32cd32", "#ff4500"];
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.animationDuration = (3 + Math.random() * 2) + "s";
+      document.body.appendChild(confetti);
+
+      setTimeout(() => {
+        confetti.remove();
+      }, 5000);
+    }
+
+    setInterval(randomConfetti, 200);
+  </script>
+
+</body>
+</html>
